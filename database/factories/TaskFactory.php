@@ -24,12 +24,12 @@ class TaskFactory extends Factory
         $status = ['pending', 'completed'];
 
         return [
-            'title' => $this->faker->sentence(6),
-            'description' => $this->faker->paragraph(2),
+            'title' => $this->faker->sentence,
+            'description' => $this->faker->paragraph,
             'assigned_to' => User::factory(),
             'building_id' => Building::factory(),
             'status' => $this->faker->randomElement($status),
-            'due_date' => $this->faker->optional()->dateTimeBetween('now', '+1 year'),
+            'due_date' => $this->faker->optional()->dateTimeBetween('now', '+1 month'),
         ];
     }
 }

@@ -20,7 +20,7 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            'comment' => $this->faker->paragraph(1),
+            'comment' => $this->faker->paragraph,
             'task_id' => Task::factory(),
             'user_id' => User::factory(),
         ];
