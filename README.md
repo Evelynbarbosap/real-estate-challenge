@@ -7,7 +7,7 @@ Clone Repositório
 git clone -b https://github.com/Evelynbarbosap/real-estate-challenge.git
 ```
 ```sh
-cd app-laravel
+cd real-estate-challenge
 ```
 
 
