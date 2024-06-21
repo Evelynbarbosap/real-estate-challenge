@@ -76,7 +76,7 @@ Endpoints:
 
 Tarefas de um edifício junto com seus comentários.
 ```sh
-GET http://localhost:8989/api/v1//buildings/{building}/tasks?status=completed // /api/tasks?assigned_to=1  ||  /api/tasks?start_date=2024-01-01&end_date=2024-06-20 || ?status=completed
+GET http://localhost:8989/api/v1//buildings/{building}/tasks?status=completed  # /api/tasks?assigned_to=1  ||  /api/tasks?start_date=2024-01-01&end_date=2024-06-20 || ?status=completed
 ```
 
 Criar um novo comentário para uma tarefa.
