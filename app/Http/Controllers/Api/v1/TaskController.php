@@ -6,6 +6,8 @@ use Carbon\Carbon;
 use App\Models\Building;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Task;
+use App\Http\Requests\CreateTaskRequest;
 
 
 class TaskController extends Controller
@@ -40,4 +42,11 @@ class TaskController extends Controller
         return response()->json($tasks);
     }
 
+    public function store(CreateTaskRequest $request)
+    {
+        $validatedData = $request->validated();
+        $task = Task::create($validatedData);
+
+        return response()->json($task, 201);
+    }
 }

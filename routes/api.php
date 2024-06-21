@@ -7,4 +7,5 @@ use App\Http\Controllers\Api\v1\TaskController;
 
 Route::prefix('v1')->group(function() {
     Route::get('/buildings/{building}/tasks', [TaskController::class, 'index']);
+    Route::post('/tasks', [TaskController::class, 'store']);
 });
