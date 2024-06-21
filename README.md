@@ -115,7 +115,7 @@ php artisan test
 ```
 
 
-PRINTS DAS ENDPOINTS
+PRINTS DAS ENDPOINTS<br>
 GET Tarefas de um edifício junto com seus comentários.
 ![image](https://github.com/Evelynbarbosap/real-estate-challenge/assets/38754479/74877a22-e510-4b20-8950-d9d970943e91)
 
