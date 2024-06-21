@@ -34,4 +34,24 @@ class Task extends Model
     {
         return $this->belongsTo(User::class, 'assigned_to');
     }
+
+    public function scopeCreatedAtBetween($query, $startDate, $endDate)
+    {
+        return $query->whereBetween('created_at', [$startDate, $endDate]);
+    }
+
+    public function scopeAssignedTo($query, $userId)
+    {
+        return $query->where('assigned_to', $userId);
+    }
+
+    public function scopeStatus($query, $status)
+    {
+        return $query->where('status', $status);
+    }
+
+    public function formattedDueDate()
+    {
+        return $this->due_date ? Carbon::parse($this->due_date)->format('d/m/Y H:i') : null;
+    }
 }
