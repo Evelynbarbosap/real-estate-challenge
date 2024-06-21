@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Http\Requests\CreateTaskRequest;
 use App\Http\Resources\TaskResource;
+use Illuminate\Http\JsonResponse;
+
 
 class TaskController extends Controller
 {
@@ -39,17 +41,18 @@ class TaskController extends Controller
         return response()->json($formattedTasks);
     }
 
-    public function store(CreateTaskRequest $request)
+    
+    public function store(CreateTaskRequest $request, Building $building)
     {
         $validatedData = $request->validated();
         
-        $task = Task::create($validatedData);
+        $task = $building->tasks()->create($validatedData);
 
         return new TaskResource($task);
     }
 
      /**
-     * Formata as tarefas conforme necessário.
+     * Format tasks
      *
      * @param \Illuminate\Database\Eloquent\Collection $tasks
      * @return array

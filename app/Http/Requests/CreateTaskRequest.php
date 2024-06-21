@@ -32,34 +32,9 @@ class CreateTaskRequest extends FormRequest
                 'integer',
                 Rule::exists(User::class, 'id'),
             ],
-            'status' => 'required|in:pending,in_progress,completed',
-            'due_date' => 'nullable|date_format:d/m/Y'
+            'status' => 'required|in:progress,open,completed,rejected',
+            'due_date' => 'nullable|date_format:Y-m-d'
         ];
-    }
-
-    /**
-     * Prepare the data for validation.
-     *
-     * @return void
-     */
-    protected function prepareForValidation()
-    {
-        if ($this->has('due_date')) {
-            $this->merge([
-                'due_date' => $this->formatDate($this->due_date),
-            ]);
-        }
-    }
-
-    /**
-     * Format the due_date attribute.
-     *
-     * @param string|null $date
-     * @return string|null
-     */
-    protected function formatDate($date)
-    {
-        return Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d');
     }
 
 }
