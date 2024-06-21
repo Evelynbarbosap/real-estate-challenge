@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Http\Requests\CreateTaskRequest;
-
+use App\Http\Resources\TaskResource;
 
 class TaskController extends Controller
 {
@@ -45,8 +45,9 @@ class TaskController extends Controller
     public function store(CreateTaskRequest $request)
     {
         $validatedData = $request->validated();
+        
         $task = Task::create($validatedData);
 
-        return response()->json($task, 201);
+        return new TaskResource($task);
     }
 }
