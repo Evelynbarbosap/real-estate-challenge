@@ -102,7 +102,7 @@ payload:
     "title": "Titulo exemplo",
     "description": "Descrição exemplo",
     "assigned_to": 2,
-    "status": "Informe o status desejado", // 'open', 'progress', 'completed', 'rejected'
+    "status": "Informe o status desejado", # 'open', 'progress', 'completed', 'rejected'
     "due_date": "Y-m-d"
 }
 
